@@ -74,7 +74,7 @@ function getMyBand(artist) {
         var track = inputCommand2;
         var randomtrackSplit = [];
         if (track === undefined) {
-            track = "What's my age again";
+            track = "The Sign";
           }
         spotify
         .search({ type: 'track', query: track})
@@ -97,15 +97,17 @@ function getMyBand(artist) {
 
 //------
 //movie function for finding movie info, console logs Mr. Nobody if nothing is entered
-//STILL NOT WORKING RIGHT  
+//WORKS  
 //command movie-this
 function getMovie() {
+    console.log("getMovie() executed");
+    var movieTitle = inputCommand2;
     if (movieTitle === undefined) {
         movieTitle = "Mr Nobody";
       }
-    
       var urlHit =
         "http://www.omdbapi.com/?t=" + movieTitle + "&y=&plot=full&tomatoes=true&apikey=trilogy";
+        //apikey=trilogy
     
       axios.get(urlHit).then(
         function(response) {
