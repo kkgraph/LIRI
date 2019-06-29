@@ -62,11 +62,11 @@ function getMyBand(artist) {
             location: response.data[i].venue.city + ", " + response.data[i].venue.country,
             date: moment(response.data[i].datetime).format('MM-DD-YYYY')
         };
-        console.log("("+(i+1)+")" + "------------------------------------------------------------------");
-        console.log("Name of Venue: " + show.name);
-        console.log("Location: " + show.location);
-        console.log("Date of Event: " + show.date);
-        console.log("---------------------------------------------------------------------");
+        log(chalk.cyan("("+(i+1)+")" + "------------------------------------------------------------------"));
+        log(chalk.green("Name of Venue: ") + chalk.blue(show.name));
+        log(chalk.green("Location: ") + chalk.blue(show.location));
+        log(chalk.green("Date of Event: ") + chalk.blue(show.date));
+        log(chalk.cyan("---------------------------------------------------------------------"));
         }
       }
     );
@@ -120,15 +120,17 @@ function getMovie() {
         function(response) {
           var jsonData = response.data;
     
-          console.log("Title: " + jsonData.Title);
-          console.log("Year: " + jsonData.Year);
-          console.log("Rated: " + jsonData.Rated);
-          console.log("IMDB Rating: " + jsonData.imdbRating);
-          console.log("Country: " + jsonData.Country);
-          console.log("Language: " + jsonData.Language);
-          console.log("Plot: " + jsonData.Plot);
-          console.log("Actors: " + jsonData.Actors);
-          console.log("Rotten Tomatoes Rating: " + jsonData.Ratings[1].Value);
+          log(chalk.cyan("---------------------------------------------------------------------"));
+          log(chalk.green("Title: ") + chalk.blue(jsonData.Title));
+          log(chalk.green("Year: ") + chalk.blue(jsonData.Year));
+          log(chalk.green("Rated: ") + chalk.blue(jsonData.Rated));
+          log(chalk.green("IMDB Rating: ") + chalk.blue(jsonData.imdbRating));
+          log(chalk.green("Country: ") + chalk.blue(jsonData.Country));
+          log(chalk.green("Language: ") + chalk.blue(jsonData.Language));
+          log(chalk.green("Plot: ") + chalk.blue(jsonData.Plot));
+          log(chalk.green("Actors: ") + chalk.blue(jsonData.Actors));
+          log(chalk.green("Rotten Tomatoes Rating: ") + chalk.blue(jsonData.Ratings[1].Value));
+          log(chalk.cyan("---------------------------------------------------------------------"));
         }
       );
 }
