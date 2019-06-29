@@ -5,7 +5,6 @@ const chalk = require('chalk')
 // const error = chalk.bold.red;
 const log = console.log;
 const keys = require("./keys");
-const pick = require('object.pick');
 const Spotify = require("node-spotify-api");
 const axios = require("axios");
 const moment = require("moment");
