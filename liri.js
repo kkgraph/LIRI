@@ -148,7 +148,7 @@ function doWhatItSays() {
         for (var i = 0; i < dataArr.length; i++) {
           command = dataArr[i]; i++;
           paramaters = dataArr[i];
-          console.log(command, paramaters);
+          log(chalk.yellow(command, paramaters));
           app(command, paramaters)
         }
       });
