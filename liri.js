@@ -141,15 +141,15 @@ function getMovie() {
 //not working yet 
 function doWhatItSays() {
     fs.readFile("random.txt", "utf8", function(error, data) {
-        log(chalk.bgGreen(data));
+        // log(chalk.bgGreen(data));
     
-        var dataArr = data.split(",");
-    
-        //not working below here
-        if (dataArr.length === 2) {
-          pick(dataArr[0], dataArr[1]);
-        } else if (dataArr.length === 1) {
-          pick(dataArr[0]);
+        const dataArr = data.split(",");
+
+        for (var i = 0; i < dataArr.length; i++) {
+          command = dataArr[i]; i++;
+          paramaters = dataArr[i];
+          console.log(command, paramaters);
+          app(command, paramaters)
         }
       });
 }
