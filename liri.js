@@ -1,17 +1,25 @@
+//i need to download chalk into the right file
+
 require("dotenv").config();
+const chalk = require('chalk')
+// const error = chalk.bold.red;
+const log = console.log;
 const keys = require("./keys");
 const Spotify = require("node-spotify-api");
 const axios = require("axios");
 const moment = require("moment");
 const fs = require("fs");
-var inputCommand = process.argv[2];
-var inputCommand2 = process.argv[3];
+let inputCommand = process.argv[2];
+let inputCommand2 = process.argv[3];
 
 let spotify = new Spotify(keys.spotify);
 //------------------
 
 //function running
 // app(process.argv[2], process.argv[3]);
+
+//CHALK
+//https://www.npmjs.com/package/chalk
 
 //------------------
 
@@ -35,12 +43,11 @@ function app(command, paramaters) {
             break;
     
         default: 
-            console.log("LIRI doesn't know that command. Please try again.");
+            log(chalk.blue("LIRI doesn't know that command. Please try again."));
     }
 }
 
-//----------------
-
+//----------------GET BAND/CONCERT INFO
 //band function for finding the bands and then console logging the name, location, and date of the show 
 //WORKING RIGHT 
 //command concert-this 
@@ -65,7 +72,7 @@ function getMyBand(artist) {
     );
 }
 
-//-----
+//-------SPOTIFY THIS 
 //this is the function for finding spotify information and console logging it 
 //THIS IS WORKING 
 //command spotify-this-song 
@@ -85,17 +92,17 @@ function getMyBand(artist) {
             previewLink: response.tracks.items[0].external_urls.spotify,
             album: response.tracks.items[0].album.name
          };
-       console.log("---------------------------------------------------------------------");
-       console.log("Artist: " + songdata.artistName);
-       console.log("Song Name: " + songdata.songName);
-       console.log("Preview Link: " + songdata.previewLink);
-       console.log("Album: " + songdata.album);
-       console.log("---------------------------------------------------------------------");
+       log(chalk.cyan("---------------------------------------------------------------------"));
+       log(chalk.green("Artist: ") + chalk.blue(songdata.artistName));
+       log(chalk.green("Song Name: ") + chalk.blue(songdata.songName));
+       log(chalk.green("Preview Link: ") + chalk.blue(songdata.previewLink));
+       log(chalk.green("Album: ") + chalk.blue(songdata.album));
+       log(chalk.cyan("---------------------------------------------------------------------"));
     });
     
 }
 
-//------
+//--------GET MOVIE
 //movie function for finding movie info, console logs Mr. Nobody if nothing is entered
 //WORKS  
 //command movie-this
@@ -126,11 +133,12 @@ function getMovie() {
       );
 }
 
-//---------
+//---------DO WHAT IT SAYS
 //this function takes info form the random.txt and does what it says, it will run one of the above functions depending on what's in the text file
+//not working yet 
 function doWhatItSays() {
     fs.readFile("random.txt", "utf8", function(error, data) {
-        // console.log(data);
+        console.log(data);
     
         var dataArr = data.split(",");
     
