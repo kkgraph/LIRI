@@ -45,7 +45,7 @@ function app(command, paramaters) {
 //WORKING RIGHT 
 //command concert-this 
 function getMyBand(artist) {
-    console.log("getMyBand() executed");
+    // console.log("getMyBand() executed");
     var artist = inputCommand2;
     axios.get("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp").then(
         function(response) {
@@ -70,7 +70,7 @@ function getMyBand(artist) {
 //THIS IS WORKING 
 //command spotify-this-song 
     function getSpotify() {
-        console.log("getSpotify() executed");
+        // console.log("getSpotify() executed");
         var track = inputCommand2;
         var randomtrackSplit = [];
         if (track === undefined) {
@@ -100,7 +100,7 @@ function getMyBand(artist) {
 //WORKS  
 //command movie-this
 function getMovie() {
-    console.log("getMovie() executed");
+    // console.log("getMovie() executed");
     var movieTitle = inputCommand2;
     if (movieTitle === undefined) {
         movieTitle = "Mr Nobody";
@@ -130,7 +130,7 @@ function getMovie() {
 //this function takes info form the random.txt and does what it says, it will run one of the above functions depending on what's in the text file
 function doWhatItSays() {
     fs.readFile("random.txt", "utf8", function(error, data) {
-        console.log(data);
+        // console.log(data);
     
         var dataArr = data.split(",");
     
