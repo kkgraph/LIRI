@@ -15,7 +15,7 @@ This function uses Spotify to grab information on songs. It tells you the artist
 ### doWhatItSays
 This function takes what is being said in the random.txt and runs one of the above functions.
 
-##How to use it 
+## How to use it 
 You can find more information about the song of your choice by running:
 > node liri.js. spotify-this-song '<song-title>'
 
@@ -28,15 +28,15 @@ You can find more information on the next band performance of your choice by run
 And finally, you can enter one of the above commands into the random.txt file and run the command in node by:
 > node liri.js do-what-it-says
 
-##Screenshot
+## Screenshot
 screenshot:
  ![Screenshot](/screenshot.png)
 Format: ![Screenshot of the app](url)
 
-##Deployed Link 
+## Deployed Link 
 You can find version 1.0 of the app here: https://github.com/kkgraph/LIRI
 
-##Technology used
+## Technology used
 Javascript
 JSON
 AXOIS
