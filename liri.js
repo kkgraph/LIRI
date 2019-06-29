@@ -10,8 +10,8 @@ const Spotify = require("node-spotify-api");
 const axios = require("axios");
 const moment = require("moment");
 const fs = require("fs");
-let inputCommand = process.argv[2];
-let inputCommand2 = process.argv[3];
+let commands = process.argv[2];
+let paramater = process.argv[3];
 
 let spotify = new Spotify(keys.spotify);
 //------------------
@@ -54,7 +54,7 @@ function app(command, paramaters) {
 //command concert-this 
 function getMyBand(artist) {
     // console.log("getMyBand() executed");
-    var artist = inputCommand2;
+    var artist = paramater;
     axios.get("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp").then(
         function(response) {
         for(var i = 0; i < response.data.length; i++) {
@@ -79,10 +79,10 @@ function getMyBand(artist) {
 //command spotify-this-song 
     function getSpotify() {
         // console.log("getSpotify() executed");
-        var track = inputCommand2;
-        var randomtrackSplit = [];
+        var track = paramater;
+        var randomtrackSplit = [ ];
         if (track === undefined) {
-            track = "The Sign";
+            track = "'The Sign'";
           }
         spotify
         .search({ type: 'track', query: track})
@@ -109,7 +109,7 @@ function getMyBand(artist) {
 //command movie-this
 function getMovie() {
     // console.log("getMovie() executed");
-    var movieTitle = inputCommand2;
+    var movieTitle = paramater;
     if (movieTitle === undefined) {
         movieTitle = "Mr Nobody";
       }
@@ -146,27 +146,34 @@ function doWhatItSays() {
         const dataArr = data.split(",");
 
         for (var i = 0; i < dataArr.length; i++) {
-          command = dataArr[i]; i++;
-          paramaters = dataArr[i];
-          log(chalk.yellow(command, paramaters));
-          app(command, paramaters)
-        }
-      });
-}
+          // console.log(dataArr);
+          commands = dataArr[i]; i++;
+          // console.log(command);
+          paramater = dataArr[i];
+          // console.log(paramaters);
+          log(chalk.yellow(commands, paramater));
+
+          App(commands, paramater);
+           };
+      })
+};
 
 //------------
-//final input 
-switch(inputCommand) {
+function App(commands, paramater) {
+  switch (commands) {
     case "concert-this":
-        getMyBand();
+        getMyBand(paramater);
         break;
     case "spotify-this-song":
-        getSpotify();
+        getSpotify(paramater);
         break;
     case "movie-this":
-        getMovie();
+        getMovie(paramater);
         break;
     case "do-what-it-says":
         doWhatItSays();
         break;
-}
+  } 
+};
+
+App(commands, paramater);
