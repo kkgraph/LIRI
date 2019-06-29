@@ -140,10 +140,11 @@ function getMovie() {
 //not working yet 
 function doWhatItSays() {
     fs.readFile("random.txt", "utf8", function(error, data) {
-        console.log(data);
+        log(chalk.bgGreen(data));
     
         var dataArr = data.split(",");
     
+        //not working below here
         if (dataArr.length === 2) {
           pick(dataArr[0], dataArr[1]);
         } else if (dataArr.length === 1) {
