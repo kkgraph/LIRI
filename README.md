@@ -37,11 +37,11 @@ screenshot:
 You can find version 1.0 of the app here: https://github.com/kkgraph/LIRI
 
 ## Technology used
-Javascript
-JSON
-AXOIS
-CHALK 
-FS
-Node.js
+* Javascript
+* JSON
+* AXOIS
+* CHALK 
+* Node.js
 
-I developed this app. 
+## Author
+* **Kim Graff** - [Kim Graff](https://github.com/kkgraph)
